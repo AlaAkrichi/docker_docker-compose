@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: json-server-deployment
+  labels:
+    app: json-server
+spec:
+  replicas: 3 # Number of replicas
+  selector:
+    matchLabels:
+      app: json-server
+  template:
+    metadata:
+      labels:
+        app: json-server
+    spec:
+      containers:
+      - name: json-server
+        image: akrichi/myjsonserveur:1.0 # Your Docker image name
+        ports:
+        - containerPort: 3000
+
